@@ -15,7 +15,7 @@ operator = Variable()
 @construct
 def seed():
     fee.set(0.4)
-    operator.set("ff61544ea94eaaeb5df08ed863c4a938e9129aba6ceee5f31b6681bdede11b89")
+    operator.set("ae7d14d6d9b8443f881ba6244727b69b681010e782d4fe482dbfb0b6aca02d5d")
 
 @export
 def createWeightedPool(poolName: str, assets: dict):
