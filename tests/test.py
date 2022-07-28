@@ -45,16 +45,16 @@ class MyTestCase(unittest.TestCase):
 
         logging.debug("\x1b[31;20mTEST ALTSWAP DEX\x1b[0m")
 
-        logging.debug("1. Approving 1000 TAU to con_altswap_v2")
+        logging.debug("Approving 1000 TAU to con_altswap_v2")
         self.currency.approve(amount=5000,to="con_altswap_v2")
         
-        logging.debug("2. Approving 1000 WETH to con_altswap_v2")
+        logging.debug("Approving 1000 WETH to con_altswap_v2")
         self.con_weth_lst001.approve(amount=5000,to="con_altswap_v2")
 
-        logging.debug("3. Approving 1000 LUSD to con_altswap_v2")
+        logging.debug("Approving 1000 LUSD to con_altswap_v2")
         self.con_lust_lst001.approve(amount=5000,to="con_altswap_v2")
 
-        logging.debug("4. Creating pool with LUSD, WETH, TAU")
+        logging.debug("Creating pool with LUSD, WETH, TAU")
         assets = {"con_lust_lst001": 100, "con_weth_lst001": 2, "currency": 2000}
         self.con_altswap_v2.createWeightedPool(poolName="LUSD-WETH-TAU", assets=assets)
 
@@ -79,6 +79,10 @@ class MyTestCase(unittest.TestCase):
         logging.debug("Contract balance LUSD: " + str(self.con_lust_lst001.balances["con_altswap_v2"]))
         logging.debug("Contract balance WETH: " + str(self.con_weth_lst001.balances["con_altswap_v2"]))
         logging.debug("Contract balance TAU : " + str(self.currency.balances["con_altswap_v2"]))
+
+        logging.debug("Add liquidity to pool")
+        assets = {"con_lust_lst001": 200, "con_weth_lst001": 4, "currency": 4000}
+        logging.debug("LP to mint: " + str(self.con_altswap_v2.addLiquidity(poolName="LUSD-WETH-TAU",assets=assets)))
 
 if __name__ == "__main__":
     log = logging.getLogger("Tests")
