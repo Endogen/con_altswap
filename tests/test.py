@@ -76,6 +76,10 @@ class MyTestCase(unittest.TestCase):
         logging.debug("Total LP Tokens  : " + str(self.con_altswap_v2.lp_tokens["LUSD-WETH-TAU"]))
         logging.debug("LP Tokens of ae7d14d6d9b8443f881ba6244727b69b681010e782d4fe482dbfb0b6aca02d5d: " + str(self.con_altswap_v2.lp_tokens["LUSD-WETH-TAU", "ae7d14d6d9b8443f881ba6244727b69b681010e782d4fe482dbfb0b6aca02d5d"]))
 
+        logging.debug("Contract balance LUSD: " + str(self.con_lust_lst001.balances["con_altswap_v2"]))
+        logging.debug("Contract balance WETH: " + str(self.con_weth_lst001.balances["con_altswap_v2"]))
+        logging.debug("Contract balance TAU : " + str(self.currency.balances["con_altswap_v2"]))
+
 if __name__ == "__main__":
     log = logging.getLogger("Tests")
     logging.basicConfig(
