@@ -85,6 +85,10 @@ def removeLiquidity(poolName: str, amountLPTokens: float):
     lp_tokens[poolName, ctx.caller] -= amountLPTokens
 
 @export
+def liquidityBalanceOf(poolName: str, account: str):
+    return lp_tokens[poolName, account]
+
+@export
 def transferLiquidity(poolName: str, amountLPTokens: float, to: str):
     assert amountLPTokens <= lp_tokens[poolName, ctx.caller], "You don't own that many LP points"
     assert amountLPTokens > 0, "Amount needs to be more than 0"
