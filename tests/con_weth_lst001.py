@@ -8,7 +8,7 @@ def seed():
     metadata['operator'] = ctx.caller
     # operator needs to be the clearinghouse contract
     metadata['owner'] = "con_lamden_link_v1"
-    balances['ae7d14d6d9b8443f881ba6244727b69b681010e782d4fe482dbfb0b6aca02d5d'] = 10000000000
+    balances['ae7d14d6d9b8443f881ba6244727b69b681010e782d4fe482dbfb0b6aca02d5d'] = 10000
 # LST002
 @export
 def change_metadata(key: str, value: Any):
