@@ -15,7 +15,7 @@ operator = Variable()
 @construct
 def seed():
     fee.set(0.4)
-    operator.set("ae7d14d6d9b8443f881ba6244727b69b681010e782d4fe482dbfb0b6aca02d5d")
+    operator.set("ae7d14d6d9b8443f881ba6244727b69b681010e782d4fe482dbfb0b6aca02d5d")  # TODO: Change
 
 @export
 def createWeightedPool(poolName: str, assets: dict):
@@ -115,6 +115,7 @@ def transferLiquidityFrom(poolName: str, amountLPTokens: float, main_account: st
 
 @export
 def swap(poolName: str, amountFrom: float, contractFrom: str, contractTo: str):
+    assert amountFrom <= pools[poolName, contractFrom], f"Not enough tokens: {contractFrom}"
     assert amountFrom > 0, "Amount needs to be more than 0"
 
     fee_amount = amountFrom / 100 * fee.get()
