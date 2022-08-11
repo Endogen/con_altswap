@@ -31,7 +31,7 @@ class MyTestCase(unittest.TestCase):
             code = f.read()
             self.c.submit(code, name="con_lusd_lst001")
 
-        with open("./con_altswap_v2.py") as f:
+        with open("../con_altswap_v2.py") as f:
             code = f.read()
             self.c.submit(code, name="con_altswap_v2")
 
